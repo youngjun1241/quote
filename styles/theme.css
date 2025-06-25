@@ -1,0 +1,15 @@
+
+:root {
+  --main-font: 'Noto Sans KR', sans-serif;
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --accent-color: #0066cc;
+  --background-image: url('../assets/bg.jpg');
+}
+body {
+  font-family: var(--main-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}

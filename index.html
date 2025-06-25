@@ -3,12 +3,36 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaekjang - 책장</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <title>오늘의 문장</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('layout.json')
+        .then(res => res.json())
+        .then(blocks => {
+          blocks.forEach(b => {
+            if (b.enabled) {
+              fetch(`blocks/${b.block}.html`)
+                .then(res => res.text())
+                .then(html => {
+                  const container = document.createElement("div");
+                  container.innerHTML = html;
+                  document.body.appendChild(container);
+                });
+            }
+          });
+        });
+
+      fetch('quotes.json')
+        .then(res => res.json())
+        .then(quotes => {
+          const random = quotes[Math.floor(Math.random() * quotes.length)];
+          const el = document.getElementById("quote");
+          if (el) el.innerText = random;
+        });
+    });
+  </script>
 </head>
 <body>
-  <div id="main-container"></div>
 </body>
 </html>

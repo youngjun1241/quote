@@ -1,0 +1,14 @@
+[
+  {
+    "block": "hero-banner",
+    "enabled": true
+  },
+  {
+    "block": "quote-card",
+    "enabled": true
+  },
+  {
+    "block": "footer",
+    "enabled": true
+  }
+]
